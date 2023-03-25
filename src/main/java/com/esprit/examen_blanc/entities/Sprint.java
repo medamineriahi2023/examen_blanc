@@ -5,7 +5,8 @@
 
 package com.esprit.examen_blanc.entities;
 
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import java.time.LocalDate;
 import javax.persistence.Entity;
@@ -16,8 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Sprint {
     @Id
     @GeneratedValue(
@@ -26,6 +29,8 @@ public class Sprint {
     private Long id;
     private String title;
     private LocalDate startDate;
+
+    @JsonIgnore
     @ManyToOne
     private Project project;
 

@@ -2,10 +2,13 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/exam_blanc?createDatabaseIfNotExist=true
     username: root
-    password: root
+    password:
   jpa:
     hibernate:
       ddl-auto: update
+    show-sql: true
+
+
 
 server:
   port: 9090

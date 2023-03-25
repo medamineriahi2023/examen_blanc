@@ -5,7 +5,7 @@
 
 package com.esprit.examen_blanc.entities;
 
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 import java.util.Set;
@@ -18,7 +18,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Project {
     @Id
     @GeneratedValue(
