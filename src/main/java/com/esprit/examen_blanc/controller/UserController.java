@@ -25,7 +25,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<User> saveUser(@RequestBody User user) {
-        return new ResponseEntity(this.userService.addUser(user), HttpStatus.CREATED);
+        return new ResponseEntity<>(this.userService.addUser(user), HttpStatus.CREATED);
     }
 
     @PostMapping(
@@ -33,7 +33,7 @@ public class UserController {
     )
     public ResponseEntity<User> assignProjectToUser(@PathVariable Long projectId, @PathVariable Long userId) throws EntityNotFoundException {
         this.userService.assignProjectToUser(projectId, userId);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping(
@@ -41,7 +41,7 @@ public class UserController {
     )
     public ResponseEntity<User> assignProjectToClient(@PathVariable Long projectId, @PathVariable String firstName, @PathVariable String lastName) throws EntityNotFoundException {
         this.userService.assignProjectToClient(projectId, firstName, lastName);
-        return new ResponseEntity(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     public UserController(final IUserService userService) {
