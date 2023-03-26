@@ -9,13 +9,7 @@ import lombok.*;
 
 import java.util.List;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -36,7 +30,7 @@ public class Project {
     private List<User> userList;
     @OneToMany(
             mappedBy = "project",
-            cascade = {CascadeType.PERSIST}
+            cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER
     )
     private Set<Sprint> sprints;
 }
